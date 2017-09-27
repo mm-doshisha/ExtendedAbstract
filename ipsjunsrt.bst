@@ -318,7 +318,7 @@ FUNCTION {format.authors}
 
 FUNCTION {add.colon}					% 2.00(5)
 { duplicate$ is.kanji
-    { "\：" * }						% 2.12(1)
+    { "：" * }						% 2.12(1)
     { ": " * }
   if$
 }
@@ -491,8 +491,8 @@ FUNCTION {format.online}				% 3.00(1)>>
 
 FUNCTION {format.url}					% 3.00(1)>>
 { is.kanji.title
-    { "\urlj{" url "}" * * }
-    { "\urle{" url "}" * * }
+    { "\url{" url "}" * * }
+    { "\url{" url "}" * * }
   if$
 }							% 3.00(1)<<
 
@@ -511,12 +511,12 @@ FUNCTION {format.doi.url}				% 3.00(1)>>
 { doi empty$
     { url empty$
 	'skip$
-	{ format.online output.nonnull
+	{ output.nonnull
 	  format.url
 	}
 	if$
     }
-    { format.online output.nonnull
+    { output.nonnull
       "\doi{" doi "}" * *
     }
   if$							% 3.00(1)<<
