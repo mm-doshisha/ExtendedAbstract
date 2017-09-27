@@ -1,0 +1,83 @@
+%%　デバッグ用
+\RequirePackage[l2tabu, orthodox]{nag}	% フルコマンドやパッケージがあれば警告
+\usepackage[all, warning]{onlyamsmath}	% amsmathが提供しない数式環境を利用すれば警告
+
+%% 図表
+\usepackage[dvipdfmx, hiresbb]{graphicx, xcolor}
+\setlength\floatsep{1truemm}			% 図と図の間のスペース
+\setlength\textfloatsep{1truemm}		% ページ上下の図と本文の間のスペース
+\setlength\intextsep{1truemm}			% ページ中の図と本文のスペース
+\setlength\abovecaptionskip{2truemm}	% 図とキャプションの間のスペース
+
+%% 余白の設定
+\usepackage[
+	dvipdfm,		% geometryはdvipdfmxに未だ対応せず
+	top=25truemm,
+	bottom=20truemm,
+	left=15truemm,
+	right=15truemm
+]{geometry}
+\setlength{\columnsep}{4truemm}		% カラム間の余白
+
+%% 行間
+\usepackage{leading}
+\leading{11pt}
+
+%% フォント関連
+\usepackage[LGR,T2A,T1]{fontenc}	% フォントでT1を使うこと
+\usepackage{textcomp}				% フォントでTS1を使うこと（テキストシンボル）
+\usepackage[utf8]{inputenc}			% ファイルがUTF8であること
+\usepackage{newpxtext,newpxmath}	% ローマンと数式の字体をPalatinoに基づいた新PXフォントで
+\usepackage{zi4}					% 等幅フォントをInconsolataで
+\usepackage[multi,jis2004]{otf}		% unicode外の漢字を書き分ける場合
+\usepackage[prefernoncjk]{pxcjkcat}	% CJK文字以外のUnicode文字を欧文扱いに
+
+%　多言語対応の場合の例
+%\usepackage[LGR,T2A,T1]{fontenc}
+%\usepackage[greek,russian,english]{babel}
+
+%% 数式
+\usepackage{amsmath, amssymb}
+
+%% アルゴリズム
+\usepackage{algorithm, algpseudocode}
+
+%% hyperrefの設定
+\usepackage[
+	dvipdfmx,
+	bookmarks=true,			% PDFにしおりをつける
+	bookmarksnumbered=true,	% しおりに節番号などをつける
+	colorlinks=false,		% リンクには色をつけない
+	pdfborder={0 0 0},		% 枠なし
+	pdfpagemode=UseNone,	% サムネイルを作成しない
+	unicode=false			%　hyperrefにunicodeは指定しない
+]{hyperref}
+\usepackage{pxjahyper} %　日本語PDFの栞を修正
+
+%% ヘッダーの設定
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{cite}	% bibtexで参考文献をハイフンでまとめる
+
+
+%% タイトルのデザイン
+\renewcommand{\maketitle}{%
+	\twocolumn[
+	\null \vspace{-1.5em}%
+	\begin{center}%
+		\let\footnote\thanks
+		{\LARGE \@title \par}%
+		\vskip .5em%
+		{\large
+			\lineskip .5em%
+			\begin{tabular}[t]{c}%
+				\@author
+			\end{tabular}\par}%
+	\end{center}%
+	\par\vskip 0em
+	]
+}
+
+%%　脚注のデザイン
+\renewcommand\thefootnote{\arabic{footnote}}
