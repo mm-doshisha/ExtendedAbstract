@@ -8,6 +8,7 @@
 \setlength\textfloatsep{1truemm}		% ページ上下の図と本文の間のスペース
 \setlength\intextsep{1truemm}			% ページ中の図と本文のスペース
 \setlength\abovecaptionskip{2truemm}	% 図とキャプションの間のスペース
+\usepackage{booktabs}	% イマドキの表を書く
 
 %% 余白の設定
 \usepackage[
@@ -17,7 +18,7 @@
 	left=15truemm,
 	right=15truemm
 ]{geometry}
-\setlength{\columnsep}{4truemm}		% カラム間の余白
+\setlength{\columnsep}{4truemm}	% カラム間の余白
 
 %% 行間
 \usepackage{leading}
@@ -43,6 +44,7 @@
 \usepackage{algorithm, algpseudocode}
 
 %% hyperrefの設定
+%\usepackage{url}			% hyperrefに含まれるので不要
 \usepackage[
 	dvipdfmx,
 	bookmarks=true,			% PDFにしおりをつける
@@ -54,12 +56,27 @@
 ]{hyperref}
 \usepackage{pxjahyper} %　日本語PDFの栞を修正
 
+%% 賢いref（hyperrefより後ろで）
+\usepackage[
+	noabbrev,	% 省略なし
+	nameinlink	% テキスト全体をリンクに
+]{cleveref}
+\crefformat{section}{#2#1#3章}
+\crefname{figure}{図}{図}
+\crefname{table}{表}{表}
+\crefname{equation}{式}{式}
+\crefname{appendix}{付録}{付録}
+
+%% referenceの設定
+%\usepackage{cite}		% citeとnatbibは排他的
+\usepackage[
+	numbers,		% 引用は数字で
+	sort&compress	% 引用括弧内はソート&連番連結
+]{natbib}
+
 %% ヘッダーの設定
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-
-\usepackage{cite}	% bibtexで参考文献をハイフンでまとめる
-
 
 %% タイトルのデザイン
 \renewcommand{\maketitle}{%
@@ -80,4 +97,4 @@
 }
 
 %%　脚注のデザイン
-\renewcommand\thefootnote{\arabic{footnote}}
+\renewcommand{\thefootnote}{\arabic{footnote}}
