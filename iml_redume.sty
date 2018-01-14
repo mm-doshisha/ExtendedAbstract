@@ -70,11 +70,16 @@
 \crefname{appendix}{付録}{付録}
 
 %% referenceの設定
-%\usepackage{cite}		% citeとnatbibは排他的
-\usepackage[
-	numbers,		% 引用は数字で
-	sort&compress	% 引用括弧内はソート&連番連結
-]{natbib}
+% citeとnatbibは排他的
+\usepackage[nobreak]{cite}		% 引用の途中で改行が入らないように
+%\usepackage[
+%	numbers,		% 引用は数字で
+%	sort&compress	% 引用括弧内はソート&連番連結
+%]{natbib}
+
+% 業績用referenceの設定
+\usepackage{multibib}
+\newcites{achieve}{業績}	% 業績用referenceを作る
 
 %% ヘッダーの設定
 \usepackage{fancyhdr}
