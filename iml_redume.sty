@@ -78,8 +78,10 @@
 %]{natbib}
 
 % 業績用referenceの設定
-\usepackage{multibib}
-\newcites{achieve}{業績}	% 業績用referenceを作る
+\usepackage[
+	resetlabels	% number labelをreferenceごとにリセットする
+]{multibib}
+\newcites{achieve}{研究業績}	% 業績用referenceを作る
 
 %% ヘッダーの設定
 \usepackage{fancyhdr}

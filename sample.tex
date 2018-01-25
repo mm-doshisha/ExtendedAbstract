@@ -151,6 +151,10 @@ a  & \text{if $a>0$,}\\
 	\bibliography{sample_ref}
 	
 	%% 業績　なければコメントアウト
+	% 丸括弧にする
+	\makeatletter
+	\renewcommand{\@biblabel}[1]{#1)}
+	\makeatother
 	\bibliographystyleachieve{ipsjunsrt}
 	\bibliographyachieve{achievement}
 	\nociteachieve{*}
