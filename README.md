@@ -36,7 +36,8 @@ latexmk -C  # pdfも含めて中間ファイルを削除
 ├── ipsjunsrt.bst     # o 参考文献の書式ファイル（情報処理学会）
 ├── sample.pdf        # コンパイルしたpdf見本
 ├── sample.tex        # o texのテンプレート
-└── sample_ref.bib    # o 参考文献ファイル（bibファイル）
+├── sample_ref.bib    # o 参考文献ファイル（bibファイル）
+└── achievement.bib   # o 業績文献ファイル（bibファイル）
 ```
 o から始まるものがおそらく自分のレジュメを書く際に必要なものです．  
 実行すると他にも色々ファイルができますが，中間ファイルなので最終的には要りません．  
