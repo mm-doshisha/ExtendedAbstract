@@ -4,13 +4,32 @@
 
 %% 図表
 \usepackage[dvipdfmx, hiresbb]{graphicx, xcolor}
-\setlength\floatsep{1truemm}			% 図と図の間のスペース
-\setlength\textfloatsep{1truemm}		% ページ上下の図と本文の間のスペース
-\setlength\intextsep{1truemm}			% ページ中の図と本文のスペース
-\setlength\abovecaptionskip{2truemm}	% 図とキャプションの間のスペース
-\usepackage{booktabs}	% イマドキの表を書く
-\usepackage{ccaption}	% キャプションのデリミタを設定する
-\captiondelim{:}
+\setlength{\floatsep}{1truemm}			% 図と図の間のスペース
+\setlength{\textfloatsep}{1truemm}		% ページ上下の図と本文の間のスペース
+\setlength{\intextsep}{1truemm}			% ページ中の図と本文のスペース
+\setlength{\abovecaptionskip}{1truemm}	% 図とキャプションの間のスペース
+\setlength{\belowcaptionskip}{2truemm}	% キャプションと本文の間のスペース
+\usepackage{booktabs}					% イマドキの表を書く
+\usepackage{subcaption}					% サブ図・サブ表
+
+\usepackage{siunitx}					% 単位を書きやすく＆表の小数点揃え
+\sisetup{
+	input-ignore={,},					% 書いてあるカンマを捨てる
+	input-decimal-markers={.},			%　小数点をピリオドにする
+	group-separator={,},				%　区切り文字をカンマにする
+	group-minimum-digits=4,				%　区切りを出す最小桁を4ケタにする
+}
+
+% キャプションのデリミタをコロンに設定する
+%\usepackage{ccaption}
+%\captiondelim{:}
+% subfig
+%\usepackage[
+%	caption=false,			% captionの設定に上書きされない
+%	labelformat=simple		% 括弧なし
+%]{subfig}					% 複数図
+%\renewcommand{\thesubfigure}{(\alph{subfigure})} % 丸括弧をrefにも付ける
+
 
 %% 余白の設定
 \usepackage[
@@ -20,19 +39,23 @@
 	left=15truemm,
 	right=15truemm
 ]{geometry}
-\setlength{\columnsep}{4truemm}	% カラム間の余白
+\setlength{\columnsep}{4truemm}		% カラム間の余白
 
 %% 行間
 \usepackage{leading}
 \leading{11pt}
 
 %% フォント関連
+\usepackage[full]{textcomp}			% フォントでTS1を使うこと（テキストシンボルを使えるように）
 \usepackage[LGR,T2A,T1]{fontenc}	% フォントでT1を使うこと
-\usepackage{textcomp}				% フォントでTS1を使うこと（テキストシンボル）
 \usepackage[utf8]{inputenc}			% ファイルがUTF8であること
-\usepackage{newpxtext,newpxmath}	% ローマンと数式の字体をPalatinoに基づいた新PXフォントで
+\usepackage{newtxtext,newtxmath}	% ローマンと数式の字体
+%\usepackage{newpxtext,newpxmath}	% ローマンと数式の字体をPalatinoに基づいた新PXフォントで（macOSのプレビューだと5が消える）
 \usepackage{zi4}					% 等幅フォントをInconsolataで
-\usepackage[multi,jis2004]{otf}		% unicode外の漢字を書き分ける場合
+\usepackage[
+	multi,jis2004,					% unicode外の漢字を書き分ける場合
+%	bold							% 章タイトルに太字フォントを埋め込む場合
+]{otf}
 \usepackage[prefernoncjk]{pxcjkcat}	% CJK文字以外のUnicode文字を欧文扱いに
 
 %　多言語対応の場合の例
@@ -41,6 +64,7 @@
 
 %% 数式
 \usepackage{amsmath, amssymb}
+\allowdisplaybreaks[4]				% amsmathのalignの中で改ページ許可
 
 %% アルゴリズム
 \usepackage{algorithm, algpseudocode}
@@ -67,19 +91,22 @@
 \crefname{figure}{図}{図}
 \crefname{table}{表}{表}
 \crefname{equation}{式}{式}
+%\creflabelformat{equation}{#2#1#3}		% 数式の引用時の括弧をなくす
 \crefname{appendix}{付録}{付録}
+\newcommand{\crefpairconjunction}{,~}	% andをにカンマにする
+\newcommand{\crefrangeconjunction}{--}	% toをダッシュにする
 
 %% referenceの設定
 % citeとnatbibは排他的
-\usepackage[nobreak]{cite}		% 引用の途中で改行が入らないように
-%\usepackage[
-%	numbers,		% 引用は数字で
-%	sort&compress	% 引用括弧内はソート&連番連結
-%]{natbib}
+%\usepackage[nobreak]{cite}		% 引用の途中で改行が入らないように
+\usepackage[
+	numbers,		% 引用は数字で
+	sort&compress	% 引用括弧内はソート&連番連結
+]{natbib}
 
 % 業績用referenceの設定
 \usepackage[
-	resetlabels	% number labelをreferenceごとにリセットする
+	resetlabels					% number labelをreferenceごとにリセットする
 ]{multibib}
 \newcites{achieve}{研究業績}	% 業績用referenceを作る
 

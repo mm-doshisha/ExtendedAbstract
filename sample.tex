@@ -6,7 +6,14 @@
 	uplatex
 ]{jsarticle}
 
-\usepackage{iml_redume}
+\usepackage{iml_resume}
+
+\makeatletter
+\g@addto@macro\normalsize{%
+	\setlength{\abovedisplayskip}{-1truemm}	% 式の上の余白
+	\setlength{\belowdisplayskip}{-1truemm}	% 式の下の余白
+}
+\makeatother
 
 
 %% コマンドの置き換え（お好みで）
@@ -39,14 +46,27 @@
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[clip,width=0.5\textwidth]{fig/elephant.jpg}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[clip,width=\textwidth]{fig/elephant.jpg}
+		\caption{
+			かわいそうなゾウ．
+			\label{fig:elephant_A}
+		}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[clip,width=\textwidth]{fig/elephant.jpg}
+		\caption{
+			きりんさんよりぞうさんがすき．
+			\label{fig:elephant_B}
+		}
+	\end{subfigure}
 	\caption{
 		群盲象を評す．
 		\label{fig:elephant}
 	}
 \end{figure}
 
-ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう（\ref{fig:elephant}）．
+ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう（\ref{fig:elephant_A,fig:elephant_B}）．
 
 \subparagraph{手法１}
 ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．ぞうの卵はおいしいぞう．
@@ -81,13 +101,13 @@
 		価格表．
 		\label{tab:egg}
 	}
-	\begin{tabular}{l|cr}
+	\begin{tabular}{l|cS[table-format=5.0]} %　整数5ケタ，小数0ケタ
 		\toprule
 		名称    &   数量  &   金額 \\
 		\midrule
-		ネズミの卵   &   1    &   1,000 \\
-		ゾウの卵   &   2    &   3,000 \\
-		ごまたまご &	12 & 1,000 \\
+		ネズミの卵   &   1    &   1000 \\
+		ゾウの卵   &   2    &   10000 \\
+		ごまたまご &	12 & 1000 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -95,29 +115,32 @@
 \ref{sec:introduction}でも述べたようにｿﾞｳの卵はおいしいぞう（\ref{tab:egg}）．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．ｿﾞｳの卵はおいしいぞう．
 
 \begin{align}
+\label{eq:equation1}
 a &= b	\\
 &= c	\notag\\
+\label{eq:equation2}
 &= d.
 \end{align}
 
 \begin{equation}
+\label{eq:equation3}
 \begin{aligned}
 a &= b	\\
 &= c	\\
 &= d.
 \end{aligned}
-\label{eq:equation}
 \end{equation}
 
 \begin{equation}
+\label{eq:equation4}
 |a| =
 \begin{cases}
-a  & \text{if $a>0$,}\\
--a & \text{if $a<0$.}
+a,  & \text{if $a>0$}\\
+-a. & \text{if $a<0$}
 \end{cases}
 \end{equation}
 
-\ref{eq:equation}は自明．This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. 
+\citet{110001167075}や\citet{mr1763essay}曰く，\ref{eq:equation1,eq:equation2,eq:equation3}は自明．This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. 
 
 \begin{algorithm}[t]
 	\caption{Calculate $y = x^n$}
@@ -147,15 +170,16 @@ a  & \text{if $a>0$,}\\
 
 {\footnotesize
 	%% 参考文献
-	\bibliographystyle{ipsjunsrt}
+	\bibliographystyle{jecon_ips}
 	\bibliography{sample_ref}
 	
-	%% 業績　なければコメントアウト
+	%% 研究業績　なければ以下コメントアウト
 	% 丸括弧にする
 	\makeatletter
 	\renewcommand{\@biblabel}[1]{#1)}
 	\makeatother
-	\bibliographystyleachieve{ipsjunsrt}
+	
+	\bibliographystyleachieve{jecon_ips}
 	\bibliographyachieve{achievement}
 	\nociteachieve{*}
 }
