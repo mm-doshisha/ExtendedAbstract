@@ -32,7 +32,7 @@ latexmk -C  # pdfも含めて中間ファイルを削除
 ├── fig               # 画像用フォルダ
 │   ├── LaTeX.pdf
 │   └── elephant.jpg
-├── iml_redume.sty    # o スタイルファイル
+├── iml_resume.sty    # o スタイルファイル
 ├── ipsjunsrt.bst     # o 参考文献の書式ファイル（情報処理学会）
 ├── sample.pdf        # コンパイルしたpdf見本
 ├── sample.tex        # o texのテンプレート
