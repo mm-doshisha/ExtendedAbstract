@@ -45,6 +45,10 @@
 \usepackage{leading}
 \leading{11pt}
 
+%% 数式
+\usepackage{amsmath, amssymb}
+\allowdisplaybreaks[4]				% amsmathのalignの中で改ページ許可
+
 %% フォント関連
 \usepackage[full]{textcomp}			% フォントでTS1を使うこと（テキストシンボルを使えるように）
 \usepackage[LGR,T2A,T1]{fontenc}	% フォントでT1を使うこと
@@ -61,10 +65,6 @@
 %　多言語対応の場合の例
 %\usepackage[LGR,T2A,T1]{fontenc}
 %\usepackage[greek,russian,english]{babel}
-
-%% 数式
-\usepackage{amsmath, amssymb}
-\allowdisplaybreaks[4]				% amsmathのalignの中で改ページ許可
 
 %% アルゴリズム
 \usepackage{algorithm, algpseudocode}
