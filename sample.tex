@@ -1,39 +1,30 @@
+\RequirePackage{plautopatch} % automatically load (u)pLaTeX patched version package.
 \documentclass[
-	10pt,
-	a4j,		%　余白小
-%	a4paper,	%　余白普通
-	twocolumn,	%　二段組
-	uplatex
+  10pt,      % 10 pt
+  a4j,       % A4 small margin
+  twocolumn, % 2-column
+  % english,   % Uncomment if you are writing the manuscript in English.
+  uplatex,
+  dvipdfmx
 ]{jsarticle}
+% load IML style file.
+\usepackage[smartref]{iml_resume}
 
-\usepackage{iml_resume}
+%%% load packages
+\usepackage{bm}
+%%%
 
-\makeatletter
-\g@addto@macro\normalsize{%
-	\setlength{\abovedisplayskip}{-1truemm}	% 式の上の余白
-	\setlength{\belowdisplayskip}{-1truemm}	% 式の下の余白
-}
-\makeatother
+%%%% header
+\LeftHeader{2023年度 卒業論文発表会（2023年11月21日）}
+\makeheader
+%%%%
 
-
-%% コマンドの置き換え（お好みで）
-\usepackage{letltxmacro}	% 安全にコマンドを置き換える
-\AtBeginDocument{
-	% 賢いrefに置き換え
-	\LetLtxMacro{\oldref}{\ref}
-	\renewcommand{\ref}{\cref}
-}
-
-
-%　ヘッダーの設定
-\lhead{\small\textbf{2017年度 卒業論文発表会（2018年1月1日）}}
-\rhead{\small\textbf{知的機構研究室}}
-\cfoot{}	% ページ番号なし
 
 \title{ぞうの卵のぞうの卵によるぞうの卵ためのぞうの卵 \linebreak 象卵の象卵による象卵ための象卵}
 \author{姓 名}
 
 \begin{document}
+
 \maketitle
 
 \section{はじめに}
@@ -101,7 +92,7 @@
 		価格表．
 		\label{tab:egg}
 	}
-	\begin{tabular}{l|cS[table-format=5.0]} %　整数5ケタ，小数0ケタ
+	\begin{tabular}{l|cS[table-format=5.0]} % 5 digit int, 0 digit float.
 		\toprule
 		名称    &   数量  &   金額 \\
 		\midrule
@@ -140,48 +131,47 @@ a,  & \text{if $a>0$}\\
 \end{cases}
 \end{equation}
 
-\citet{110001167075}や\citet{mr1763essay}曰く，\ref{eq:equation1,eq:equation2,eq:equation3}は自明．This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. 
+\citet{110001167075}や\citet{mr1763essay}曰く，\ref{eq:equation1,eq:equation2,eq:equation3}は自明．This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語. This document contains English, Română, Español and 日本語.
 
 \begin{algorithm}[t]
-	\caption{Calculate $y = x^n$}
-	\label{alg:algorithm}
-	\begin{algorithmic}[1]
-		\Require	$n \geq 0 \vee x \neq 0$
-		\Ensure	$y = x^n$
-		\State $y \Leftarrow 1$
-			\If{$n < 0$}
-				\State $X \Leftarrow 1 / x$
-				\State $N \Leftarrow -n$
-			\Else
-				\State $X \Leftarrow x$
-				\State $N \Leftarrow n$
-			\EndIf
-		\While{$N \neq 0$}
-			\If{$N$ is even}
-				\State $X \Leftarrow X \times X$
-				\State $N \Leftarrow N / 2$
-			\Else[$N$ is odd]
-				\State $y \Leftarrow y \times X$
-				\State $N \Leftarrow N - 1$
-			\EndIf
-		\EndWhile
-	\end{algorithmic}
+    \caption{Calculate $y = x^n$}
+    \label{alg:algorithm}
+    \begin{algorithmic}[1]
+        \Require	$n \geq 0 \vee x \neq 0$
+        \Ensure	$y = x^n$
+        \State $y \Leftarrow 1$
+            \If{$n < 0$}
+                \State $X \Leftarrow 1 / x$
+                \State $N \Leftarrow -n$
+            \Else
+                \State $X \Leftarrow x$
+                \State $N \Leftarrow n$
+            \EndIf
+        \While{$N \neq 0$}
+            \If{$N$ is even}
+                \State $X \Leftarrow X \times X$
+                \State $N \Leftarrow N / 2$
+            \Else[$N$ is odd]
+                \State $y \Leftarrow y \times X$
+                \State $N \Leftarrow N - 1$
+            \EndIf
+        \EndWhile
+    \end{algorithmic}
 \end{algorithm}
 
 {\footnotesize
-	%% 参考文献
-	\bibliographystyle{jecon_ips}
-	\bibliography{sample_ref}
-	
-	%% 研究業績　なければ以下コメントアウト
-	% 丸括弧にする
-	\makeatletter
-	\renewcommand{\@biblabel}[1]{#1)}
-	\makeatother
-	
-	\bibliographystyleachieve{jecon_ips}
-	\bibliographyachieve{achievement}
-	\nociteachieve{*}
+    %% reference
+    \bibliographystyle{jecon_ips}
+    \bibliography{bibliography}
+
+    % If no achievements, comment out the below six commands.
+    \makeatletter
+    \renewcommand{\@biblabel}[1]{#1)} % [N] -> N)
+    \makeatother
+
+    \bibliographystyleachieve{jecon_ips}
+    \bibliographyachieve{achievement}
+    \nociteachieve{*}
 }
 
 \end{document}
